@@ -25,11 +25,15 @@ return [
     'fields' => [
 
         'bulk_select_page' => [
-            'label' => 'Alle Einträge für Massenaktion auswählen/abwählen.',
+            'label' => 'Alle Einträge für Stapelverarbeitung auswählen/abwählen.',
         ],
 
         'bulk_select_record' => [
-            'label' => 'Eintrag :key für Massenaktion auswählen/abwählen.',
+            'label' => 'Eintrag :key für Stapelverarbeitung auswählen/abwählen.',
+        ],
+
+        'bulk_select_group' => [
+            'label' => 'Gruppe auswählen/abwählen :title für Stapelverarbeitung.',
         ],
 
         'search' => [
@@ -98,7 +102,7 @@ return [
 
     'empty' => [
 
-        'heading' => 'Keine Datensätze gefunden',
+        'heading' => 'Keine :model',
 
         'description' => 'Erstelle ein(e) :model um zu beginnen.',
 
@@ -107,6 +111,10 @@ return [
     'filters' => [
 
         'actions' => [
+
+            'apply' => [
+                'label' => ' Filter anwenden',
+            ],
 
             'remove' => [
                 'label' => 'Filter löschen',

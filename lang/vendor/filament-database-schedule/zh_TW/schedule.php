@@ -5,7 +5,7 @@ return [
         'single' => '排程',
         'plural' => '排程',
         'navigation' => '設定',
-        'history' => '顯示執行歷程',
+        'history' => '顯示執行歷史記錄',
     ],
     'fields' => [
         'command' => '指令',
@@ -23,8 +23,8 @@ return [
         'email_output' => '用於寄送輸出的電子郵件',
         'sendmail_success' => '執行指令成功後寄送電子郵件',
         'sendmail_error' => '執行指令失敗後寄送電子郵件',
-        'log_success' => '如果指令執行成功，則將指令輸出寫入歷程資料表',
-        'log_error' => '如果指令執行失敗，則將指令輸出寫入歷程資料表',
+        'log_success' => '如果指令執行成功，則將指令輸出寫入歷史記錄資料表',
+        'log_error' => '如果指令執行失敗，則將指令輸出寫入歷史記錄資料表',
         'status' => '狀態',
         'actions' => '動作',
         'data-type' => '資料類型',
@@ -32,7 +32,8 @@ return [
         'created_at' => '建立時間',
         'updated_at' => '更新時間',
         'never' => '永不',
-        'environments' => '環境'
+        'environments' => '環境',
+        'limit_history_count' => '限制歷史記錄數',
     ],
     'messages' => [
         'no-records-found' => '沒有找到記錄。',
@@ -57,7 +58,8 @@ return [
     'buttons' => [
         'inactivate' => '停用',
         'activate' => '啟用',
-        'history' => '歷程',
+        'history' => '歷史記錄',
+        'clear_history' => '刪除歷史記錄'
 
     ],
     'validation' => [

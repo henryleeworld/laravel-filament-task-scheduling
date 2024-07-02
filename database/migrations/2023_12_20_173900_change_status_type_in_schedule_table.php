@@ -3,15 +3,15 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
-class ChangeStatusTypeInScheduleTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::table(Config::get('filament-database-schedule.table.schedules', 'schedules'), function (Blueprint $table) {
             $table->enum('new_status', ['active', 'inactive', 'trashed'])->default('active')->after('status');
@@ -19,20 +19,21 @@ class ChangeStatusTypeInScheduleTable extends Migration
 
         DB::table(Config::get('filament-database-schedule.table.schedules', 'schedules'))->where('status', 0)->update(['new_status' => 'inactive']);
         DB::table(Config::get('filament-database-schedule.table.schedules', 'schedules'))->where('status', 1)->update(['new_status' => 'active']);
-        DB::table(Config::get('filament-database-schedule.table.schedules', 'schedules'))->where('status', 3)->update(['new_status' => 'trashed']);
+        // DB::table(Config::get('filament-database-schedule.table.schedules', 'schedules'))->where('status', 3)->update(['new_status' => 'trashed']);
 
         Schema::table(Config::get('filament-database-schedule.table.schedules', 'schedules'), function (Blueprint $table) {
             $table->dropColumn('status');
-            $table->renameColumn('new_status', 'status');
+        });
+        Schema::table(Config::get('filament-database-schedule.table.schedules', 'schedules'), function (Blueprint $table) {
+            // $table->renameColumn('new_status', 'status');
+            DB::statement('ALTER TABLE schedules CHANGE new_status status enum("active", "inactive", "trashed") not null default "active"');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::table(Config::get('filament-database-schedule.table.schedules', 'schedules'), function (Blueprint $table) {
             $table->boolean('old_status')->default(true)->after('status');
@@ -44,7 +45,9 @@ class ChangeStatusTypeInScheduleTable extends Migration
 
         Schema::table(Config::get('filament-database-schedule.table.schedules', 'schedules'), function (Blueprint $table) {
             $table->dropColumn('status');
+        });
+        Schema::table(Config::get('filament-database-schedule.table.schedules', 'schedules'), function (Blueprint $table) {
             $table->renameColumn('old_status', 'status');
         });
     }
-}
+};
