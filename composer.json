@@ -8,7 +8,7 @@
         "php": "^8.2",
         "filament/filament": "^3.2",
         "husam-tariq/filament-database-schedule": "^2.0",
-        "laravel/framework": "^11.12",
+        "laravel/framework": "^11.13",
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
