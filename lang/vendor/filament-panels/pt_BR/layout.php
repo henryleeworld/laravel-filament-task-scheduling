@@ -11,7 +11,7 @@ return [
         ],
 
         'logout' => [
-            'label' => 'Logout',
+            'label' => 'Sair',
         ],
 
         'open_database_notifications' => [
@@ -48,6 +48,23 @@ return [
                 'label' => 'Mudar para tema do sistema',
             ],
 
+        ],
+
+    ],
+
+    'avatar' => [
+        'alt' => 'Avatar de :name',
+    ],
+
+    'logo' => [
+        'alt' => 'Logotipo de :name',
+    ],
+
+    'tenant_menu' => [
+
+        'search_field' => [
+            'label' => 'Buscar locatário',
+            'placeholder' => 'Buscar',
         ],
 
     ],

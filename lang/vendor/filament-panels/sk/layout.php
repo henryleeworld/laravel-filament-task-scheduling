@@ -52,4 +52,21 @@ return [
 
     ],
 
+    'avatar' => [
+        'alt' => 'Profilový obrázok pre :name',
+    ],
+
+    'logo' => [
+        'alt' => ':name logo',
+    ],
+
+    'tenant_menu' => [
+
+        'search_field' => [
+            'label' => 'Vyhľadávanie nájomcu',
+            'placeholder' => 'Hľadať',
+        ],
+
+    ],
+
 ];

@@ -1,4 +1,4 @@
-# Laravel 11 Filament 任務排程
+# Laravel 12 Filament 任務排程
 
 Filament 任務排程採用快速建立簡捷的 TALL（Tailwind CSS、Alpine.js、Laravel 和 Livewire）堆疊應用程式的工具組，在過去，開發者必須為每個需要排程的任務產生 Cron 項目，然而令人頭疼的是任務排程不受版本控制，並且您需要 SSH 到您的伺服器增加 Cron 項目，現在可以將所有排定的任務儲存在儀表板以便管理任務排程。
 
@@ -21,14 +21,6 @@ $ php artisan key:generate
 ```sh
 $ php artisan migrate --seed
 ```
-- 執行安裝 Vite 和 Laravel 擴充套件引用的依賴項目。
-```sh
-$ npm install
-```
-- 執行正式環境版本化資源管道並編譯。
-```sh
-$ npm run build
-```
 - 啟動排程器，僅需要在伺服器上增加一條 Cron 項目即可。
 ```sh
 * * * * * cd /{專案路徑} && php artisan schedule:run >> /dev/null 2>&1
@@ -39,8 +31,8 @@ $ npm run build
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/QCxfZsy.png)
+![](https://i.imgur.com/5JgXPhH.png)
 > 建立一個排程任務
 
-![](https://i.imgur.com/CA9nWA5.png)
+![](https://i.imgur.com/XYu8UgP.png)
 > 伺服器會在指定的時間自動完成設定的任務
